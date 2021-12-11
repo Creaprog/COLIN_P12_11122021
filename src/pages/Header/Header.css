@@ -1,0 +1,26 @@
+.header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+    height: 90px;
+    -moz-box-shadow:    3px 3px 4px 6px #000000;
+    -webkit-box-shadow: 3px 3px 4px 6px #000000;
+    box-shadow:         3px 3px 4px 6px #000000;
+}
+
+.title {
+    margin: 0;
+    padding: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    color: #E60000;
+    font-size: px;
+}
+
+.element-header-content {
+    color: white;
+    font-size: 24px;
+}
