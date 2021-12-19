@@ -4,12 +4,12 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import CallUser from './services/CallUser';
+import React from 'react';
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home CallUser={<CallUser />}/>} />
+      <Route path="/" element={<Home />} />
     </Routes>
   );
 }

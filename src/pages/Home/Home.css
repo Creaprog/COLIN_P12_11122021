@@ -5,3 +5,18 @@
 .container {
     margin-left: 100px;
 }
+
+p {
+    color: #000000;
+}
+
+.hello {
+    display: flex;
+    font-size: 48px;
+    margin-top: 50px;
+}
+
+.name {
+    margin-left: 10px;
+    color : #E60000;
+}
