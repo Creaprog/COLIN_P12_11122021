@@ -26,7 +26,7 @@ const useCallUser = (query) => {
           })
     },[query]);
 
-    return [data, isLoading, error]
+    return [data, error, isLoading]
 }
 
 export default useCallUser;
