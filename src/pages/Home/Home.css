@@ -1,5 +1,5 @@
 .row {
-    display: flex;    
+    display: flex;
 }
 
 .container {
@@ -18,5 +18,21 @@ p {
 
 .name {
     margin-left: 10px;
-    color : #E60000;
+    color: #e60000;
+}
+
+.row-left {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.bar-chart-component {
+    width: 835px;
+    height: 320px;
+    grid-column: 1 / 4;
+    background-color: #fbfbfb;
+    border-radius: 5px;
 }
