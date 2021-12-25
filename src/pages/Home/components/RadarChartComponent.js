@@ -1,5 +1,5 @@
 import React from 'react'
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, Legend } from 'recharts'
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis } from 'recharts'
 import PropTypes from 'prop-types'
 
 /**

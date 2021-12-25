@@ -26,11 +26,10 @@ export default function LineChartComponent(props) {
             />
             <YAxis hide={true} />
             <Tooltip />
-            {/* <Line type="monotone" dataKey="min" stroke="#8884d8"  /> */}
             <Line
                 type="natural"
                 dataKey="min"
-                stroke="black"
+                stroke="black" // TODO : Mettre en white
                 strokeWidth={2}
                 dot={false}
                 activeDot={{

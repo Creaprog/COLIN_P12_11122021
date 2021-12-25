@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 
 /**
  *
@@ -29,3 +30,7 @@ const useCallUser = (query) => {
 }
 
 export default useCallUser
+
+useCallUser.propTypes = {
+    query: PropTypes.string.isRequired,
+}
