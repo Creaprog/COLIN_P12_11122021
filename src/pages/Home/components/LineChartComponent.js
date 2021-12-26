@@ -9,10 +9,10 @@ export default function LineChartComponent(props) {
             height={268}
             data={props.data}
             margin={{
-                top: 5,
-                right: 30,
-                left: 20,
-                bottom: 5,
+                top: 0,
+                right: 0,
+                left: 0,
+                bottom: 0,
             }}
         >
             <CartesianGrid strokeDasharray="3 3" />
@@ -29,7 +29,7 @@ export default function LineChartComponent(props) {
             <Line
                 type="natural"
                 dataKey="min"
-                stroke="black" // TODO : Mettre en white
+                stroke="#fff"
                 strokeWidth={2}
                 dot={false}
                 activeDot={{

@@ -10,17 +10,16 @@ import PropTypes from 'prop-types'
 export default function RadarChartComponent(props) {
     return (
         <RadarChart
-            cx={150}
-            cy={150}
-            outerRadius={150}
+            cx={140}
+            cy={140}
+            outerRadius={70}
             width={258}
             height={268}
             data={props.data}
         >
-            {/* TODO Corriger : Error: <path> attribute d: Expected number, "M NaN,NaNL NaN,NaN…". */}
             <PolarGrid />
             <PolarAngleAxis
-                dataKey="value"
+                dataKey="kind"
                 stroke="white"
                 tickLine={false}
                 ticks={false}

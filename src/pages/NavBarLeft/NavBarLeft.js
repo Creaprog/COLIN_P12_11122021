@@ -13,13 +13,13 @@ const NavBarLeft = () => {
                     <img src="/meditation.svg" alt="Meditation Logo" />
                 </button>
                 <button className="nav-bar-left-button">
-                    <img src="/meditation.svg" alt="Meditation Logo" />
+                    <img src="/natation.svg" alt="Meditation Logo" />
                 </button>
                 <button className="nav-bar-left-button">
-                    <img src="/meditation.svg" alt="Meditation Logo" />
+                    <img src="/cycliste.svg" alt="Meditation Logo" />
                 </button>
                 <button className="nav-bar-left-button">
-                    <img src="/meditation.svg" alt="Meditation Logo" />
+                    <img src="/muscu.svg" alt="Meditation Logo" />
                 </button>
                 <div className="copyright">Copiryght, SportSee 2020</div>
             </div>

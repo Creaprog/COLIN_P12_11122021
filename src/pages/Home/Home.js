@@ -57,11 +57,12 @@ function DataPerformance(query) {
 function DataScore(query) {
     let data = []
     data.push({
-        score: query.todayScore * 100,
-        fill: '#8884d8',
+        score: query * 100,
+        fill: '#FF0101',
     })
     return data
 }
+
 /**
  *
  * @returns {Home}
@@ -90,6 +91,7 @@ const Home = () => {
     let dataScore = null
     if (queryUser) {
         dataScore = DataScore(queryUser.todayScore)
+        console.log(queryUser.keyData)
     }
     return (
         <>
@@ -100,23 +102,124 @@ const Home = () => {
                     <div className="hello">
                         <div>Bonjour</div>
                         <div className="name">
-                            {queryUser
-                                ? queryUser.userInfos.firstName
-                                : 'Erreur'}
+                            {queryUser ? queryUser.userInfos.firstName : '...'}
                         </div>
                     </div>
                     <p>
                         Félicitation ! Vous avez explosé vos objectifs hier 👏
                     </p>
-                    <div className="row-left">
-                        <div className="bar-chart-component">
-                            {dataActivity != null ? (
-                                <BarChartComponent data={dataActivity} />
-                            ) : null}
+                    <div className="row">
+                        <div className="row-left">
+                            <div className="bar-chart-component">
+                                {dataActivity != null ? (
+                                    <BarChartComponent data={dataActivity} />
+                                ) : null}
+                            </div>
+                            <div className="line-chart-component">
+                                {dataAverageSessions != null ? (
+                                    <LineChartComponent
+                                        data={dataAverageSessions}
+                                    />
+                                ) : null}
+                            </div>
+                            <div className="radar-chart-component">
+                                {dataPerformance != null ? (
+                                    <RadarChartComponent
+                                        data={dataPerformance}
+                                    />
+                                ) : null}
+                            </div>
+                            <div className="radial-chart-component">
+                                {dataScore != null ? (
+                                    <RadialChartComponent data={dataScore} />
+                                ) : null}
+                            </div>
                         </div>
-                        <LineChartComponent data={dataAverageSessions} />
-                        <RadarChartComponent data={dataPerformance} />
-                        <RadialChartComponent data={dataScore} />
+                        <div className="row-right">
+                            <article className="article">
+                                <div className="article-icon-calories">
+                                    <img
+                                        src="calories.svg"
+                                        alt="Calories"
+                                        className="img-calories"
+                                    />
+                                </div>
+                                <div className="article-text">
+                                    <div className="article-title">
+                                        {queryUser != null
+                                            ? queryUser.keyData.calorieCount
+                                            : '...'}
+                                        kCal
+                                    </div>
+                                    <div className="article-content">
+                                        Calories
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article className="article">
+                                <div className="article-icon-calories">
+                                    <img
+                                        src="calories.svg"
+                                        alt="Calories"
+                                        className="img-calories"
+                                    />
+                                </div>
+                                <div className="article-text">
+                                    <div className="article-title">
+                                        {queryUser != null
+                                            ? queryUser.keyData.calorieCount
+                                            : '...'}
+                                        g
+                                    </div>
+                                    <div className="article-content">
+                                        Calories
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article className="article">
+                                <div className="article-icon-calories">
+                                    <img
+                                        src="calories.svg"
+                                        alt="Calories"
+                                        className="img-calories"
+                                    />
+                                </div>
+                                <div className="article-text">
+                                    <div className="article-title">
+                                        {queryUser != null
+                                            ? queryUser.keyData.calorieCount
+                                            : '...'}
+                                        g
+                                    </div>
+                                    <div className="article-content">
+                                        Calories
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article className="article">
+                                <div className="article-icon-calories">
+                                    <img
+                                        src="calories.svg"
+                                        alt="Calories"
+                                        className="img-calories"
+                                    />
+                                </div>
+                                <div className="article-text">
+                                    <div className="article-title">
+                                        {queryUser != null
+                                            ? queryUser.keyData.calorieCount
+                                            : '...'}
+                                        g
+                                    </div>
+                                    <div className="article-content">
+                                        Calories
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
                     </div>
                 </div>
             </div>
