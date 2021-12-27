@@ -77,6 +77,39 @@ p {
     opacity: 0.07;
 }
 
+.article-icon-proteines {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4ab8ff;
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    opacity: 0.07;
+}
+
+.article-icon-glucides {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9ce23;
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    opacity: 0.07;
+}
+
+.article-icon-lipides {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fd5181;
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    opacity: 0.07;
+}
+
 .img-calories {
     background-color: #ff0000;
 }
@@ -90,4 +123,31 @@ p {
 .article-content {
     font-size: 14px;
     color: #74798c;
+}
+
+.bar-chart-component-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.bar-chart-component-info-title {
+    font-weight: bold;
+    margin-left: 30px;
+}
+.bar-chart-component-info-bar-chart {
+    display: flex;
+}
+
+.poids {
+    margin-right: 30px;
+}
+
+.calories {
+    margin-right: 30px;
+}
+
+.oval {
+    margin-right: 10px;
 }

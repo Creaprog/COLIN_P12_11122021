@@ -18,9 +18,14 @@
     margin-inline-end: 0;
     color: #e60000;
     font-size: px;
+    margin-left: 10px;
 }
 
 .element-header-content {
     color: white;
     font-size: 24px;
+}
+
+.header-content-title {
+    display: flex;
 }

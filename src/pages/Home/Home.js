@@ -91,7 +91,6 @@ const Home = () => {
     let dataScore = null
     if (queryUser) {
         dataScore = DataScore(queryUser.todayScore)
-        console.log(queryUser.keyData)
     }
     return (
         <>
@@ -111,6 +110,29 @@ const Home = () => {
                     <div className="row">
                         <div className="row-left">
                             <div className="bar-chart-component">
+                                <div className="bar-chart-component-info">
+                                    <div className="bar-chart-component-info-title">
+                                        Activité quotidienne
+                                    </div>
+                                    <div className="bar-chart-component-info-bar-chart">
+                                        <div className="poids">
+                                            <img
+                                                src="oval-noir.svg"
+                                                alt="Calories"
+                                                className="oval"
+                                            />
+                                            Poids(kg)
+                                        </div>
+                                        <div className="calories">
+                                            <img
+                                                src="oval-rouge.svg"
+                                                alt="Calories"
+                                                className="oval"
+                                            />
+                                            Calories(kCal)
+                                        </div>
+                                    </div>
+                                </div>
                                 {dataActivity != null ? (
                                     <BarChartComponent data={dataActivity} />
                                 ) : null}
@@ -158,7 +180,7 @@ const Home = () => {
                             </article>
 
                             <article className="article">
-                                <div className="article-icon-calories">
+                                <div className="article-icon-proteines">
                                     <img
                                         src="calories.svg"
                                         alt="Calories"
@@ -168,18 +190,18 @@ const Home = () => {
                                 <div className="article-text">
                                     <div className="article-title">
                                         {queryUser != null
-                                            ? queryUser.keyData.calorieCount
+                                            ? queryUser.keyData.proteinCount
                                             : '...'}
                                         g
                                     </div>
                                     <div className="article-content">
-                                        Calories
+                                        Proteines
                                     </div>
                                 </div>
                             </article>
 
                             <article className="article">
-                                <div className="article-icon-calories">
+                                <div className="article-icon-glucides">
                                     <img
                                         src="calories.svg"
                                         alt="Calories"
@@ -189,18 +211,19 @@ const Home = () => {
                                 <div className="article-text">
                                     <div className="article-title">
                                         {queryUser != null
-                                            ? queryUser.keyData.calorieCount
+                                            ? queryUser.keyData
+                                                  .carbohydrateCount
                                             : '...'}
                                         g
                                     </div>
                                     <div className="article-content">
-                                        Calories
+                                        Glucides
                                     </div>
                                 </div>
                             </article>
 
                             <article className="article">
-                                <div className="article-icon-calories">
+                                <div className="article-icon-lipides">
                                     <img
                                         src="calories.svg"
                                         alt="Calories"
@@ -210,12 +233,12 @@ const Home = () => {
                                 <div className="article-text">
                                     <div className="article-title">
                                         {queryUser != null
-                                            ? queryUser.keyData.calorieCount
+                                            ? queryUser.keyData.lipidCount
                                             : '...'}
                                         g
                                     </div>
                                     <div className="article-content">
-                                        Calories
+                                        Lipides
                                     </div>
                                 </div>
                             </article>

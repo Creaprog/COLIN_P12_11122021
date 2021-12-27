@@ -1,5 +1,5 @@
-import React from "react";
-import "./Header.css";
+import React from 'react'
+import './Header.css'
 
 /**
  *
@@ -9,6 +9,7 @@ const Header = () => {
     return (
         <div className="header">
             <div className="header-content-title">
+                <img src="/logo.svg" alt="logo" />
                 <h1 className="title">SportSee</h1>
             </div>
             <div className="element-header-content">Accueil</div>
@@ -16,7 +17,7 @@ const Header = () => {
             <div className="element-header-content">Réglage</div>
             <div className="element-header-content">Communauté</div>
         </div>
-    );
-};
+    )
+}
 
-export default Header;
+export default Header
