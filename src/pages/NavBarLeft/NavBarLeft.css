@@ -1,26 +1,26 @@
 .nav-bar-left {
-    background-color: black;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* 90px size of header */
-    min-height: calc(100vh - 90px);
-    width: 120px;
+	background-color: black;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	/* 90px size of header */
+	min-height: calc(100vh - 90px);
+	width: 120px;
 }
 
 .nav-bar-left-button {
-    height: 60px;
-    width: 60px;
-    border-radius: 6px;
+	height: 60px;
+	width: 60px;
+	border-radius: 6px;
 }
 
 .copyright {
-    position: absolute;
-    bottom: 50px;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    color: white;
-    transform: rotate(0.5turn);
-    font-size: 12px;
+	position: absolute;
+	bottom: 50px;
+	writing-mode: vertical-rl;
+	text-orientation: mixed;
+	color: white;
+	transform: rotate(0.5turn);
+	font-size: 12px;
 }
