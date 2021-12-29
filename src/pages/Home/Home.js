@@ -159,11 +159,12 @@ const Home = () => {
 						</div>
 						<div className='row-right'>
 							<article className='article'>
-								<div className='article-icon-calories'>
+								<div className='grp-article-icon'>
+									<div className='article-icon-calories'></div>
 									<img
 										src='calories.svg'
 										alt='Calories'
-										className='img-calories'
+										className='img-article'
 									/>
 								</div>
 								<div className='article-text'>
@@ -180,11 +181,12 @@ const Home = () => {
 							</article>
 
 							<article className='article'>
-								<div className='article-icon-proteines'>
+								<div className='grp-article-icon'>
+									<div className='article-icon-proteines'></div>
 									<img
-										src='calories.svg'
-										alt='Calories'
-										className='img-calories'
+										src='chicken.svg'
+										alt='proteines'
+										className='img-article'
 									/>
 								</div>
 								<div className='article-text'>
@@ -201,11 +203,12 @@ const Home = () => {
 							</article>
 
 							<article className='article'>
-								<div className='article-icon-glucides'>
+								<div className='grp-article-icon'>
+									<div className='article-icon-glucides'></div>
 									<img
-										src='calories.svg'
-										alt='Calories'
-										className='img-calories'
+										src='apple.svg'
+										alt='glucides'
+										className='img-article'
 									/>
 								</div>
 								<div className='article-text'>
@@ -223,11 +226,12 @@ const Home = () => {
 							</article>
 
 							<article className='article'>
-								<div className='article-icon-lipides'>
+								<div className='grp-article-icon'>
+									<div className='article-icon-lipides'></div>
 									<img
-										src='calories.svg'
-										alt='Calories'
-										className='img-calories'
+										src='cheeseburger.svg'
+										alt='lipides'
+										className='img-article'
 									/>
 								</div>
 								<div className='article-text'>

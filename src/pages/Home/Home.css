@@ -56,6 +56,7 @@ p {
 .row-right {
 	margin-left: 30px;
 }
+
 .article {
 	display: flex;
 	align-items: center;
@@ -66,48 +67,47 @@ p {
 	margin-bottom: 40px;
 }
 
+.grp-article-icon {
+	position: relative;
+}
+
 .article-icon-calories {
-	display: flex;
-	align-items: center;
-	justify-content: center;
 	background-color: #ff0000;
 	width: 60px;
 	height: 60px;
 	border-radius: 6px;
+	opacity: 0.3;
 }
 
 .article-icon-proteines {
-	display: flex;
-	align-items: center;
-	justify-content: center;
 	background-color: #4ab8ff;
 	width: 60px;
 	height: 60px;
 	border-radius: 6px;
+	opacity: 0.3;
 }
 
 .article-icon-glucides {
-	display: flex;
-	align-items: center;
-	justify-content: center;
 	background-color: #f9ce23;
 	width: 60px;
 	height: 60px;
 	border-radius: 6px;
+	opacity: 0.3;
 }
 
 .article-icon-lipides {
-	display: flex;
-	align-items: center;
-	justify-content: center;
 	background-color: #fd5181;
 	width: 60px;
 	height: 60px;
 	border-radius: 6px;
+	opacity: 0.3;
 }
 
-.img-calories {
-	color: #ff0000;
+.img-article {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
 .article-title {

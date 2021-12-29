@@ -24,12 +24,30 @@ export default function BarChartComponent(props) {
 					bottom: 5,
 				}}
 			>
-				<CartesianGrid strokeDasharray='2 2' />
-				<XAxis dataKey='name' />
-				<YAxis />
+				<CartesianGrid vertical={false} strokeDasharray='2 2' />
+				<XAxis dataKey='name' axisLine={false} tickLine={false} />
+				<YAxis
+					orientation='right'
+					tickCount={4}
+					axisLine={false}
+					tickLine={false}
+					datakey='kilogram'
+				/>
+				<YAxis datakey='calories' hide={true} />
+
 				<Tooltip />
-				<Bar dataKey='kilogram' fill='#282D30' />
-				<Bar dataKey='calories' fill='#E60000' />
+				<Bar
+					dataKey='kilogram'
+					fill='#282D30'
+					barSize={5}
+					radius={[10, 10, 0, 0]}
+				/>
+				<Bar
+					dataKey='calories'
+					fill='#E60000'
+					barSize={5}
+					radius={[10, 10, 0, 0]}
+				/>
 			</BarChart>
 		</ResponsiveContainer>
 	);

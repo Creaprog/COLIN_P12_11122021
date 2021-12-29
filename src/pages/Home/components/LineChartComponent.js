@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-	LineChart,
-	Line,
-	XAxis,
-	YAxis,
-	CartesianGrid,
-	Tooltip,
-} from 'recharts';
+import { LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts';
 import PropTypes from 'prop-types';
 
 export default function LineChartComponent(props) {
@@ -22,7 +15,6 @@ export default function LineChartComponent(props) {
 				bottom: 0,
 			}}
 		>
-			<CartesianGrid strokeDasharray='3 3' />
 			<XAxis
 				dataKey={'name'}
 				stroke='rgba(255, 255, 255, 0.5)'
@@ -31,10 +23,10 @@ export default function LineChartComponent(props) {
 				tick={{ fontSize: 12 }}
 				padding={{ left: 10, right: 10 }}
 			/>
-			<YAxis hide={true} />
+			<YAxis hide={true} tickLine={false} />
 			<Tooltip />
 			<Line
-				type='natural'
+				type='monotone'
 				dataKey='min'
 				stroke='#fff'
 				strokeWidth={2}
@@ -49,6 +41,7 @@ export default function LineChartComponent(props) {
 		</LineChart>
 	);
 }
+
 LineChartComponent.propTypes = {
 	data: PropTypes.array.isRequired,
 };
