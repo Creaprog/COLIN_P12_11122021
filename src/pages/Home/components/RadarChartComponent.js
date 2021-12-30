@@ -10,9 +10,9 @@ import PropTypes from 'prop-types';
 export default function RadarChartComponent(props) {
 	return (
 		<RadarChart
-			cx={140}
-			cy={140}
-			outerRadius={70}
+			cx='50%'
+			cy='50%'
+			outerRadius='80%'
 			width={258}
 			height={268}
 			data={props.data}

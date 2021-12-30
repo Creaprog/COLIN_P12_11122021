@@ -1,7 +1,6 @@
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts';
 import PropTypes from 'prop-types';
-
 export default function LineChartComponent(props) {
 	return (
 		<LineChart
