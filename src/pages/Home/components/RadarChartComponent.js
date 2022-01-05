@@ -17,7 +17,7 @@ export default function RadarChartComponent(props) {
 			height={268}
 			data={props.data}
 		>
-			<PolarGrid />
+			<PolarGrid radialLines={false} />
 			<PolarAngleAxis
 				dataKey='kind'
 				stroke='white'

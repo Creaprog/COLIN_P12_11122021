@@ -1,6 +1,16 @@
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts';
 import PropTypes from 'prop-types';
+
+const MyDot = ({ cx, cy }) => {
+	return (
+		<svg>
+			<rect fill='#00000030' x={cx} y={0} height='270' width='340' />
+			<circle cx={cx} cy={cy} r={4} stroke='white' fill='white' />
+			<circle cx={cx} cy={cy} r={8} fill='#00000030' />
+		</svg>
+	);
+};
 export default function LineChartComponent(props) {
 	return (
 		<LineChart
@@ -30,12 +40,13 @@ export default function LineChartComponent(props) {
 				stroke='#fff'
 				strokeWidth={2}
 				dot={false}
-				activeDot={{
-					stroke: 'rgba(255, 255, 255, 0.25)',
-					strokeWidth: 10,
-					r: 5,
-					fill: '#fff',
-				}}
+				// activeDot={{
+				// 	stroke: 'rgba(255, 255, 255, 0.25)',
+				// 	strokeWidth: 10,
+				// 	r: 5,
+				// 	fill: '#fff',
+				// }}
+				activeDot={<MyDot />}
 			/>
 		</LineChart>
 	);
