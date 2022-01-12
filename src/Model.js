@@ -1,8 +1,8 @@
 import backEnd from './services/Backend';
 
 class Model {
-	static getMe(userId) {
-		return backEnd.getMe(userId).then((result) => {
+	static getUser(userId) {
+		return backEnd.getUser(userId).then((result) => {
 			return {
 				id: result.id,
 				keyData: result.keyData,

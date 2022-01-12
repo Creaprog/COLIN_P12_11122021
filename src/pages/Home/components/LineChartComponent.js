@@ -2,6 +2,11 @@ import React from 'react';
 import { LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts';
 import PropTypes from 'prop-types';
 
+/**
+ * Create a black rectangle with a white circle in the center.
+ * @param undefined - the x-coordinate of the center of the circle
+ * @returns A circle with a radius of 8 and a fill of #00000030.
+ */
 const MyDot = ({ cx, cy }) => {
 	return (
 		<svg>
@@ -11,6 +16,7 @@ const MyDot = ({ cx, cy }) => {
 		</svg>
 	);
 };
+
 export default function LineChartComponent(props) {
 	return (
 		<LineChart
@@ -40,12 +46,6 @@ export default function LineChartComponent(props) {
 				stroke='#fff'
 				strokeWidth={2}
 				dot={false}
-				// activeDot={{
-				// 	stroke: 'rgba(255, 255, 255, 0.25)',
-				// 	strokeWidth: 10,
-				// 	r: 5,
-				// 	fill: '#fff',
-				// }}
 				activeDot={<MyDot />}
 			/>
 		</LineChart>
