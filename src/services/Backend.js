@@ -15,4 +15,12 @@ const backEnd = {
 		).then((response) => response.json());
 	},
 };
+
+// TODO Mock mes calls pour les tests
+const mockService = {
+	getUser(userId) {
+		return new Promise((resolve) => resolve({Ici}) );
+	},
+}
+
 export default backEnd;

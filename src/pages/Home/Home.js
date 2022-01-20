@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import NavBarLeft from '../NavBarLeft/NavBarLeft';
 import Header from './../Header/Header';
 import './Home.css';
@@ -9,6 +9,8 @@ import BarChartComponent from './components/BarChartComponent';
 import LineChartComponent from './components/LineChartComponent';
 import RadarChartComponent from './components/RadarChartComponent';
 import RadialChartComponent from './components/RadialChartComponent';
+// import useUser from '../../services/useUser';
+import { useCallUser2 } from '../../services/useCallUser';
 import Model from '../../Model';
 
 /**
@@ -68,16 +70,11 @@ function DataScore(query) {
  * @returns {Home}
  */
 const Home = () => {
-	const [queryUser, setQueryUser] = React.useState();
+	const [queryUser] = useCallUser2(() => Model.getMe(12));
 	const [queryActivity] = useActivity(12);
 	const [queryAverageSessions] = useAverageSessions(12);
 	const [queryformance] = usePerformance(12);
-	// const [queryUser] = useUser(12);
-	React.useEffect(() => {
-		Model.getUser(12).then((data) => {
-			setQueryUser(data.data);
-		});
-	});
+	//   const [queryUser] = useUser(12);
 
 	let dataActivity = null;
 	if (queryActivity && queryActivity.sessions) {
@@ -107,7 +104,6 @@ const Home = () => {
 					<div className='hello'>
 						<div>Bonjour</div>
 						<div className='name'>
-							{console.log(queryUser)}
 							{queryUser ? queryUser.userInfos.firstName : '...'}
 						</div>
 					</div>

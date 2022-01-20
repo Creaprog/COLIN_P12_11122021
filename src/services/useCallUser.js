@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Model from '../Model';
 
@@ -31,16 +31,20 @@ const useCallUser = (query) => {
 };
 
 const useCallUser2 = (model) => {
+	const myref = React.useRef(model);
 	const [data, setData] = useState();
 	const [error, setError] = useState();
 	const [isLoading, setIsLoading] = useState(false);
 
 	useEffect(() => {
+		console.log('test');
 		setIsLoading(true);
-		model
+		myref
+			.current()
 			.then((result) => {
 				setIsLoading(false);
-				setData(result.data);
+				console.log(result);
+				setData(result);
 				return result;
 			})
 			.catch((error) => {
@@ -48,7 +52,7 @@ const useCallUser2 = (model) => {
 				setError(error);
 				return error;
 			});
-	}, [model]);
+	}, [myref]);
 
 	return [data, error, isLoading];
 };
