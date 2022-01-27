@@ -1,6 +1,6 @@
-import { useCallUser2 } from './useCallUser';
-import PropTypes from 'prop-types';
-import Model from '../Model';
+import { useCallUser2 } from "./useCallUser";
+import PropTypes from "prop-types";
+import Model from "../Model";
 
 export default function useUser(id) {
 	// const [req, error, isLoading] = useCallUser(

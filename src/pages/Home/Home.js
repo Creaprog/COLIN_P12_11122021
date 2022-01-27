@@ -1,17 +1,17 @@
-import React from 'react';
-import NavBarLeft from '../NavBarLeft/NavBarLeft';
-import Header from './../Header/Header';
-import './Home.css';
-import useActivity from '../../services/useActivity';
-import useAverageSessions from '../../services/useAverageSessions';
-import usePerformance from '../../services/usePerformance';
-import BarChartComponent from './components/BarChartComponent';
-import LineChartComponent from './components/LineChartComponent';
-import RadarChartComponent from './components/RadarChartComponent';
-import RadialChartComponent from './components/RadialChartComponent';
+import React from "react";
+import NavBarLeft from "../NavBarLeft/NavBarLeft";
+import Header from "./../Header/Header";
+import "./Home.css";
+import useActivity from "../../services/useActivity";
+import useAverageSessions from "../../services/useAverageSessions";
+import usePerformance from "../../services/usePerformance";
+import BarChartComponent from "./components/BarChartComponent";
+import LineChartComponent from "./components/LineChartComponent";
+import RadarChartComponent from "./components/RadarChartComponent";
+import RadialChartComponent from "./components/RadialChartComponent";
 // import useUser from '../../services/useUser';
-import { useCallUser2 } from '../../services/useCallUser';
-import Model from '../../Model';
+import { useCallUser2 } from "../../services/useCallUser";
+import Model from "../../Model";
 
 /**
  *
@@ -34,7 +34,7 @@ function DataActivity(query) {
 function DataAverageSessions(query) {
 	let data = [];
 	let i = 0;
-	const week = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
+	const week = ["L", "M", "M", "J", "V", "S", "D"];
 	query.sessions.map((element) => {
 		return data.push({
 			name: week[i++],
@@ -60,7 +60,7 @@ function DataScore(query) {
 	let data = [];
 	data.push({
 		score: query * 100,
-		fill: '#FF0101',
+		fill: "#FF0101",
 	});
 	return data;
 }
@@ -70,7 +70,7 @@ function DataScore(query) {
  * @returns {Home}
  */
 const Home = () => {
-	const [queryUser] = useCallUser2(() => Model.getMe(12));
+	const [queryUser] = useCallUser2(() => Model.getUser(12));
 	const [queryActivity] = useActivity(12);
 	const [queryAverageSessions] = useAverageSessions(12);
 	const [queryformance] = usePerformance(12);
@@ -91,46 +91,40 @@ const Home = () => {
 		dataPerformance = DataPerformance(queryformance);
 	}
 
-	let dataScore = null;
-	if (queryUser) {
-		dataScore = DataScore(queryUser.todayScore);
-	}
 	return (
 		<>
 			<Header />
-			<div className='row'>
+			<div className="row">
 				<NavBarLeft />
-				<div className='container'>
-					<div className='hello'>
+				<div className="container">
+					<div className="hello">
 						<div>Bonjour</div>
-						<div className='name'>
-							{queryUser ? queryUser.userInfos.firstName : '...'}
+						<div className="name">
+							{queryUser ? queryUser.userInfos.firstName : "..."}
 						</div>
 					</div>
-					<p>
-						Félicitation ! Vous avez explosé vos objectifs hier 👏
-					</p>
-					<div className='row'>
-						<div className='row-left'>
-							<div className='bar-chart-component'>
-								<div className='bar-chart-component-info'>
-									<div className='bar-chart-component-info-title'>
+					<p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+					<div className="row">
+						<div className="row-left">
+							<div className="bar-chart-component">
+								<div className="bar-chart-component-info">
+									<div className="bar-chart-component-info-title">
 										Activité quotidienne
 									</div>
-									<div className='bar-chart-component-info-bar-chart'>
-										<div className='poids'>
+									<div className="bar-chart-component-info-bar-chart">
+										<div className="poids">
 											<img
-												src='oval-noir.svg'
-												alt='Calories'
-												className='oval'
+												src="oval-noir.svg"
+												alt="Calories"
+												className="oval"
 											/>
 											Poids(kg)
 										</div>
-										<div className='calories'>
+										<div className="calories">
 											<img
-												src='oval-rouge.svg'
-												alt='Calories'
-												className='oval'
+												src="oval-rouge.svg"
+												alt="Calories"
+												className="oval"
 											/>
 											Calories(kCal)
 										</div>
@@ -140,113 +134,96 @@ const Home = () => {
 									<BarChartComponent data={dataActivity} />
 								) : null}
 							</div>
-							<div className='line-chart-component'>
+							<div className="line-chart-component">
 								{dataAverageSessions != null ? (
-									<LineChartComponent
-										data={dataAverageSessions}
-									/>
+									<LineChartComponent data={dataAverageSessions} />
 								) : null}
 							</div>
-							<div className='radar-chart-component'>
+							<div className="radar-chart-component">
 								{dataPerformance != null ? (
-									<RadarChartComponent
-										data={dataPerformance}
-									/>
+									<RadarChartComponent data={dataPerformance} />
 								) : null}
 							</div>
-							<div className='radial-chart-component'>
-								{dataScore != null ? (
-									<RadialChartComponent data={dataScore} />
+							<div className="radial-chart-component">
+								{queryUser && queryUser.score != null ? (
+									<RadialChartComponent
+										data={[
+											{
+												score: queryUser.score * 100,
+												fill: "#FF0101",
+											},
+										]}
+									/>
 								) : null}
 							</div>
 						</div>
-						<div className='row-right'>
-							<article className='article'>
-								<div className='grp-article-icon'>
-									<div className='article-icon-calories'></div>
+						<div className="row-right">
+							<article className="article">
+								<div className="grp-article-icon">
+									<div className="article-icon-calories"></div>
 									<img
-										src='calories.svg'
-										alt='Calories'
-										className='img-article'
+										src="calories.svg"
+										alt="Calories"
+										className="img-article"
 									/>
 								</div>
-								<div className='article-text'>
-									<div className='article-title'>
-										{queryUser != null
-											? queryUser.keyData.calorieCount
-											: '...'}
+								<div className="article-text">
+									<div className="article-title">
+										{queryUser != null ? queryUser.keyData.calorieCount : "..."}
 										kCal
 									</div>
-									<div className='article-content'>
-										Calories
-									</div>
+									<div className="article-content">Calories</div>
 								</div>
 							</article>
 
-							<article className='article'>
-								<div className='grp-article-icon'>
-									<div className='article-icon-proteines'></div>
+							<article className="article">
+								<div className="grp-article-icon">
+									<div className="article-icon-proteines"></div>
 									<img
-										src='chicken.svg'
-										alt='proteines'
-										className='img-article'
+										src="chicken.svg"
+										alt="proteines"
+										className="img-article"
 									/>
 								</div>
-								<div className='article-text'>
-									<div className='article-title'>
-										{queryUser != null
-											? queryUser.keyData.proteinCount
-											: '...'}
+								<div className="article-text">
+									<div className="article-title">
+										{queryUser != null ? queryUser.keyData.proteinCount : "..."}
 										g
 									</div>
-									<div className='article-content'>
-										Proteines
-									</div>
+									<div className="article-content">Proteines</div>
 								</div>
 							</article>
 
-							<article className='article'>
-								<div className='grp-article-icon'>
-									<div className='article-icon-glucides'></div>
-									<img
-										src='apple.svg'
-										alt='glucides'
-										className='img-article'
-									/>
+							<article className="article">
+								<div className="grp-article-icon">
+									<div className="article-icon-glucides"></div>
+									<img src="apple.svg" alt="glucides" className="img-article" />
 								</div>
-								<div className='article-text'>
-									<div className='article-title'>
+								<div className="article-text">
+									<div className="article-title">
 										{queryUser != null
-											? queryUser.keyData
-													.carbohydrateCount
-											: '...'}
+											? queryUser.keyData.carbohydrateCount
+											: "..."}
 										g
 									</div>
-									<div className='article-content'>
-										Glucides
-									</div>
+									<div className="article-content">Glucides</div>
 								</div>
 							</article>
 
-							<article className='article'>
-								<div className='grp-article-icon'>
-									<div className='article-icon-lipides'></div>
+							<article className="article">
+								<div className="grp-article-icon">
+									<div className="article-icon-lipides"></div>
 									<img
-										src='cheeseburger.svg'
-										alt='lipides'
-										className='img-article'
+										src="cheeseburger.svg"
+										alt="lipides"
+										className="img-article"
 									/>
 								</div>
-								<div className='article-text'>
-									<div className='article-title'>
-										{queryUser != null
-											? queryUser.keyData.lipidCount
-											: '...'}
-										g
+								<div className="article-text">
+									<div className="article-title">
+										{queryUser != null ? queryUser.keyData.lipidCount : "..."}g
 									</div>
-									<div className='article-content'>
-										Lipides
-									</div>
+									<div className="article-content">Lipides</div>
 								</div>
 							</article>
 						</div>

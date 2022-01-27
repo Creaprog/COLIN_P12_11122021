@@ -1,9 +1,9 @@
-import useCallUser from './useCallUser';
-import PropTypes from 'prop-types';
+import useCallUser from "./useCallUser";
+import PropTypes from "prop-types";
 
 export default function usePerformance(id) {
 	const [req, error, isLoading] = useCallUser(
-		process.env.REACT_APP_URL + 'user/' + id + '/performance'
+		process.env.REACT_APP_URL + "user/" + id + "/performance"
 	);
 	return [req, error, isLoading];
 }

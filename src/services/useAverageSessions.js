@@ -1,9 +1,9 @@
-import useCallUser from './useCallUser';
-import PropTypes from 'prop-types';
+import useCallUser from "./useCallUser";
+import PropTypes from "prop-types";
 
 export default function useAverageSessions(id) {
 	const [req, error, isLoading] = useCallUser(
-		process.env.REACT_APP_URL + 'user/' + id + '/average-sessions'
+		process.env.REACT_APP_URL + "user/" + id + "/average-sessions"
 	);
 	return [req, error, isLoading];
 }

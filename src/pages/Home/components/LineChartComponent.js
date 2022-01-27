@@ -10,9 +10,9 @@ import PropTypes from 'prop-types';
 const MyDot = ({ cx, cy }) => {
 	return (
 		<svg>
-			<rect fill='#00000030' x={cx} y={0} height='270' width='340' />
-			<circle cx={cx} cy={cy} r={4} stroke='white' fill='white' />
-			<circle cx={cx} cy={cy} r={8} fill='#00000030' />
+			<rect fill="#00000030" x={cx} y={0} height="270" width="340" />
+			<circle cx={cx} cy={cy} r={4} stroke="white" fill="white" />
+			<circle cx={cx} cy={cy} r={8} fill="#00000030" />
 		</svg>
 	);
 };
@@ -32,7 +32,7 @@ export default function LineChartComponent(props) {
 		>
 			<XAxis
 				dataKey={'name'}
-				stroke='rgba(255, 255, 255, 0.5)'
+				stroke="rgba(255, 255, 255, 0.5)"
 				tickLine={false}
 				axisLine={false}
 				tick={{ fontSize: 12 }}
@@ -41,9 +41,9 @@ export default function LineChartComponent(props) {
 			<YAxis hide={true} tickLine={false} />
 			<Tooltip />
 			<Line
-				type='monotone'
-				dataKey='min'
-				stroke='#fff'
+				type="monotone"
+				dataKey="min"
+				stroke="#fff"
 				strokeWidth={2}
 				dot={false}
 				activeDot={<MyDot />}

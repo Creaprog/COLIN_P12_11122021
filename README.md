@@ -8,3 +8,7 @@
 # Exécution du front end
 
 `npm start`
+
+# Génération du site web static
+
+`npm build`

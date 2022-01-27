@@ -1,17 +1,17 @@
-import React from 'react';
-import { RadialBarChart, RadialBar, PolarAngleAxis } from 'recharts';
-import PropTypes from 'prop-types';
-import './RadialChartBartComponent.css';
+import React from "react";
+import { RadialBarChart, RadialBar, PolarAngleAxis } from "recharts";
+import PropTypes from "prop-types";
+import "./RadialChartBartComponent.css";
 export default function RadialChartBartComponent(props) {
 	return (
 		<>
-			<div className='number-center'>{props.data[0].score}%</div>
-			<div className='text-center'>de votre objectif</div>
+			<div className="number-center">{props.data[0].score}%</div>
+			<div className="text-center">de votre objectif</div>
 			<RadialBarChart
 				width={258}
 				height={268}
-				cx='50%'
-				cy='50%'
+				cx="50%"
+				cy="50%"
 				innerRadius={70}
 				outerRadius={80}
 				barSize={10}
@@ -20,7 +20,7 @@ export default function RadialChartBartComponent(props) {
 				data={props.data}
 			>
 				<PolarAngleAxis
-					type='number'
+					type="number"
 					domain={[0, 100]}
 					angleAxisId={0}
 					tick={false}
@@ -29,14 +29,14 @@ export default function RadialChartBartComponent(props) {
 					background={false}
 					clockWise={true}
 					cornerRadius={15}
-					dataKey='score'
+					dataKey="score"
 				/>
 				<text
 					x={35}
 					y={25}
-					textAnchor='middle'
-					dominantBaseline='middle'
-					className='progress-label'
+					textAnchor="middle"
+					dominantBaseline="middle"
+					className="progress-label"
 				>
 					Score
 				</text>

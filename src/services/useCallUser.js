@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
-import Model from '../Model';
+import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
+import Model from "../Model";
 
 /**
  *
@@ -37,13 +37,11 @@ const useCallUser2 = (model) => {
 	const [isLoading, setIsLoading] = useState(false);
 
 	useEffect(() => {
-		console.log('test');
 		setIsLoading(true);
 		myref
 			.current()
 			.then((result) => {
 				setIsLoading(false);
-				console.log(result);
 				setData(result);
 				return result;
 			})
