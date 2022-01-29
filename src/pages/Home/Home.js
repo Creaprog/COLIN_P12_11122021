@@ -1,69 +1,13 @@
-import React from "react";
-import NavBarLeft from "../NavBarLeft/NavBarLeft";
-import Header from "./../Header/Header";
-import "./Home.css";
-import useActivity from "../../services/useActivity";
-import useAverageSessions from "../../services/useAverageSessions";
-import usePerformance from "../../services/usePerformance";
-import BarChartComponent from "./components/BarChartComponent";
-import LineChartComponent from "./components/LineChartComponent";
-import RadarChartComponent from "./components/RadarChartComponent";
-import RadialChartComponent from "./components/RadialChartComponent";
-// import useUser from '../../services/useUser';
-import { useCallUser2 } from "../../services/useCallUser";
-import Model from "../../Model";
-
-/**
- *
- * @param {array} query
- * @returns {array}
- */
-function DataActivity(query) {
-	let data = [];
-	let i = 0;
-	query.sessions.map((element) => {
-		return data.push({
-			name: ++i,
-			kilogram: element.kilogram,
-			calories: element.calories,
-		});
-	});
-	return data;
-}
-
-function DataAverageSessions(query) {
-	let data = [];
-	let i = 0;
-	const week = ["L", "M", "M", "J", "V", "S", "D"];
-	query.sessions.map((element) => {
-		return data.push({
-			name: week[i++],
-			min: element.sessionLength,
-		});
-	});
-
-	return data;
-}
-
-function DataPerformance(query) {
-	let data = [];
-	query.data.forEach((element) => {
-		data.push({
-			kind: query.kind[element.kind],
-			value: element.value,
-		});
-	});
-	return data;
-}
-
-function DataScore(query) {
-	let data = [];
-	data.push({
-		score: query * 100,
-		fill: "#FF0101",
-	});
-	return data;
-}
+import React from 'react';
+import NavBarLeft from '../NavBarLeft/NavBarLeft';
+import Header from './../Header/Header';
+import './Home.css';
+import BarChartComponent from './components/BarChartComponent';
+import LineChartComponent from './components/LineChartComponent';
+import RadarChartComponent from './components/RadarChartComponent';
+import RadialChartComponent from './components/RadialChartComponent';
+import { useCallUser2 } from '../../services/useCallUser';
+import Model from '../../Model';
 
 /**
  *
@@ -71,25 +15,11 @@ function DataScore(query) {
  */
 const Home = () => {
 	const [queryUser] = useCallUser2(() => Model.getUser(12));
-	const [queryActivity] = useActivity(12);
-	const [queryAverageSessions] = useAverageSessions(12);
-	const [queryformance] = usePerformance(12);
-	//   const [queryUser] = useUser(12);
-
-	let dataActivity = null;
-	if (queryActivity && queryActivity.sessions) {
-		dataActivity = DataActivity(queryActivity);
-	}
-
-	let dataAverageSessions = null;
-	if (queryAverageSessions) {
-		dataAverageSessions = DataAverageSessions(queryAverageSessions);
-	}
-
-	let dataPerformance = null;
-	if (queryformance) {
-		dataPerformance = DataPerformance(queryformance);
-	}
+	const [queryActivity] = useCallUser2(() => Model.getActivity(12));
+	const [queryAverageSessions] = useCallUser2(() =>
+		Model.getAverageSessions(12)
+	);
+	const [queryformance] = useCallUser2(() => Model.getPerformance(12));
 
 	return (
 		<>
@@ -100,7 +30,7 @@ const Home = () => {
 					<div className="hello">
 						<div>Bonjour</div>
 						<div className="name">
-							{queryUser ? queryUser.userInfos.firstName : "..."}
+							{queryUser ? queryUser.userInfos.firstName : '...'}
 						</div>
 					</div>
 					<p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
@@ -130,18 +60,18 @@ const Home = () => {
 										</div>
 									</div>
 								</div>
-								{dataActivity != null ? (
-									<BarChartComponent data={dataActivity} />
+								{queryActivity != null ? (
+									<BarChartComponent data={queryActivity} />
 								) : null}
 							</div>
 							<div className="line-chart-component">
-								{dataAverageSessions != null ? (
-									<LineChartComponent data={dataAverageSessions} />
+								{queryAverageSessions != null ? (
+									<LineChartComponent data={queryAverageSessions} />
 								) : null}
 							</div>
 							<div className="radar-chart-component">
-								{dataPerformance != null ? (
-									<RadarChartComponent data={dataPerformance} />
+								{queryformance != null ? (
+									<RadarChartComponent data={queryformance} />
 								) : null}
 							</div>
 							<div className="radial-chart-component">
@@ -150,7 +80,7 @@ const Home = () => {
 										data={[
 											{
 												score: queryUser.score * 100,
-												fill: "#FF0101",
+												fill: '#FF0101',
 											},
 										]}
 									/>
@@ -169,7 +99,7 @@ const Home = () => {
 								</div>
 								<div className="article-text">
 									<div className="article-title">
-										{queryUser != null ? queryUser.keyData.calorieCount : "..."}
+										{queryUser != null ? queryUser.keyData.calorieCount : '...'}
 										kCal
 									</div>
 									<div className="article-content">Calories</div>
@@ -187,7 +117,7 @@ const Home = () => {
 								</div>
 								<div className="article-text">
 									<div className="article-title">
-										{queryUser != null ? queryUser.keyData.proteinCount : "..."}
+										{queryUser != null ? queryUser.keyData.proteinCount : '...'}
 										g
 									</div>
 									<div className="article-content">Proteines</div>
@@ -203,7 +133,7 @@ const Home = () => {
 									<div className="article-title">
 										{queryUser != null
 											? queryUser.keyData.carbohydrateCount
-											: "..."}
+											: '...'}
 										g
 									</div>
 									<div className="article-content">Glucides</div>
@@ -221,7 +151,7 @@ const Home = () => {
 								</div>
 								<div className="article-text">
 									<div className="article-title">
-										{queryUser != null ? queryUser.keyData.lipidCount : "..."}g
+										{queryUser != null ? queryUser.keyData.lipidCount : '...'}g
 									</div>
 									<div className="article-content">Lipides</div>
 								</div>

@@ -1,32 +1,37 @@
 const backEnd = {
 	getUser(userId) {
-		return fetch(process.env.REACT_APP_URL + "user/" + userId)
+		return fetch(process.env.REACT_APP_URL + 'user/' + userId)
 			.then((response) => response.json())
 			.then((result) => result.data);
 	},
 	getActivity(userId) {
-		return fetch(process.env.REACT_APP_URL + "user/" + userId + "/activity")
+		return fetch(process.env.REACT_APP_URL + 'user/' + userId + '/activity')
 			.then((response) => response.json())
 			.then((result) => result.data);
 	},
 	getAverageSessions(userId) {
 		return fetch(
-			process.env.REACT_APP_URL + "user/" + userId + "/average-sessions"
+			process.env.REACT_APP_URL + 'user/' + userId + '/average-sessions'
 		)
+			.then((response) => response.json())
+			.then((result) => result.data);
+	},
+	getPerformance(userId) {
+		return fetch(process.env.REACT_APP_URL + 'user/' + userId + '/performance')
 			.then((response) => response.json())
 			.then((result) => result.data);
 	},
 };
 
-// TODO Mock mes calls pour les tests
+// TODO: Mock mes calls pour les tests
 export const mockService = {
 	getUser(userId) {
 		return new Promise((resolve) =>
 			resolve({
 				id: 12,
 				userInfos: {
-					firstName: "Mock Karl",
-					lastName: "Dovineau",
+					firstName: 'Mock Karl',
+					lastName: 'Dovineau',
 					age: 31,
 				},
 				todayScore: 0.12,
