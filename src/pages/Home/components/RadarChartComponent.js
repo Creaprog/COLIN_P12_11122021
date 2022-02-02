@@ -10,25 +10,25 @@ import PropTypes from 'prop-types';
 export default function RadarChartComponent(props) {
 	return (
 		<RadarChart
-			cx='50%'
-			cy='50%'
-			outerRadius='80%'
+			cx="50%"
+			cy="50%"
+			outerRadius="80%"
 			width={258}
 			height={268}
 			data={props.data}
 		>
 			<PolarGrid radialLines={false} />
 			<PolarAngleAxis
-				dataKey='kind'
-				stroke='white'
+				dataKey="kind"
+				stroke="white"
 				tickLine={false}
 				ticks={false}
 				tick={{ fontSize: 9 }}
 			/>
 			<Radar
-				dataKey='value'
-				stroke='rgba(230, 0, 0, 0)'
-				fill='#e60000'
+				dataKey="value"
+				stroke="rgba(230, 0, 0, 0)"
+				fill="#e60000"
 				fillOpacity={0.6}
 			/>
 		</RadarChart>

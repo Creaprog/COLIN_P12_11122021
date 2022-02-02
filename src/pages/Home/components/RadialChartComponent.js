@@ -1,7 +1,7 @@
-import React from "react";
-import { RadialBarChart, RadialBar, PolarAngleAxis } from "recharts";
-import PropTypes from "prop-types";
-import "./RadialChartBartComponent.css";
+import React from 'react';
+import { RadialBarChart, RadialBar, PolarAngleAxis } from 'recharts';
+import PropTypes from 'prop-types';
+import './RadialChartBartComponent.css';
 export default function RadialChartBartComponent(props) {
 	return (
 		<>
@@ -30,6 +30,7 @@ export default function RadialChartBartComponent(props) {
 					clockWise={true}
 					cornerRadius={15}
 					dataKey="score"
+					// background="#FFFFFF"
 				/>
 				<text
 					x={35}

@@ -8,18 +8,26 @@ import RadarChartComponent from './components/RadarChartComponent';
 import RadialChartComponent from './components/RadialChartComponent';
 import { useCallUser2 } from '../../services/useCallUser';
 import Model from '../../Model';
+import { useParams } from 'react-router-dom';
 
+//TODO : Faire un message d'erreur lorsque le fetch ne fetch pas
 /**
  *
  * @returns {Home}
  */
 const Home = () => {
-	const [queryUser] = useCallUser2(() => Model.getUser(12));
-	const [queryActivity] = useCallUser2(() => Model.getActivity(12));
-	const [queryAverageSessions] = useCallUser2(() =>
-		Model.getAverageSessions(12)
+	let { id } = useParams();
+	if (id === undefined) {
+		id = 12;
+	}
+	const [queryUser, queryUserError] = useCallUser2(() => Model.getUser(id));
+	const [queryActivity, queryActivityError] = useCallUser2(() =>
+		Model.getActivity(id)
 	);
-	const [queryformance] = useCallUser2(() => Model.getPerformance(12));
+	const [queryAverageSessions, queryAverageSessionsError] = useCallUser2(() =>
+		Model.getAverageSessions(id)
+	);
+	const [queryformance] = useCallUser2(() => Model.getPerformance(id));
 
 	return (
 		<>
@@ -28,6 +36,10 @@ const Home = () => {
 				<NavBarLeft />
 				<div className="container">
 					<div className="hello">
+						{}
+						<div>
+							La récupération des données est indisponible pour le moment.
+						</div>
 						<div>Bonjour</div>
 						<div className="name">
 							{queryUser ? queryUser.userInfos.firstName : '...'}
@@ -44,7 +56,7 @@ const Home = () => {
 									<div className="bar-chart-component-info-bar-chart">
 										<div className="poids">
 											<img
-												src="oval-noir.svg"
+												src="/oval-noir.svg"
 												alt="Calories"
 												className="oval"
 											/>
@@ -52,7 +64,7 @@ const Home = () => {
 										</div>
 										<div className="calories">
 											<img
-												src="oval-rouge.svg"
+												src="/oval-rouge.svg"
 												alt="Calories"
 												className="oval"
 											/>
@@ -92,7 +104,7 @@ const Home = () => {
 								<div className="grp-article-icon">
 									<div className="article-icon-calories"></div>
 									<img
-										src="calories.svg"
+										src="/calories.svg"
 										alt="Calories"
 										className="img-article"
 									/>
@@ -110,7 +122,7 @@ const Home = () => {
 								<div className="grp-article-icon">
 									<div className="article-icon-proteines"></div>
 									<img
-										src="chicken.svg"
+										src="/chicken.svg"
 										alt="proteines"
 										className="img-article"
 									/>
@@ -127,7 +139,11 @@ const Home = () => {
 							<article className="article">
 								<div className="grp-article-icon">
 									<div className="article-icon-glucides"></div>
-									<img src="apple.svg" alt="glucides" className="img-article" />
+									<img
+										src="/apple.svg"
+										alt="glucides"
+										className="img-article"
+									/>
 								</div>
 								<div className="article-text">
 									<div className="article-title">
@@ -144,7 +160,7 @@ const Home = () => {
 								<div className="grp-article-icon">
 									<div className="article-icon-lipides"></div>
 									<img
-										src="cheeseburger.svg"
+										src="/cheeseburger.svg"
 										alt="lipides"
 										className="img-article"
 									/>

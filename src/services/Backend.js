@@ -1,14 +1,31 @@
 const backEnd = {
+	/**
+	 *
+	 * @param {number} userId
+	 * @returns {array}
+	 */
 	getUser(userId) {
 		return fetch(process.env.REACT_APP_URL + 'user/' + userId)
 			.then((response) => response.json())
 			.then((result) => result.data);
 	},
+
+	/**
+	 *
+	 * @param {number} userId
+	 * @returns {array}
+	 */
 	getActivity(userId) {
 		return fetch(process.env.REACT_APP_URL + 'user/' + userId + '/activity')
 			.then((response) => response.json())
 			.then((result) => result.data);
 	},
+
+	/**
+	 *
+	 * @param {number} userId
+	 * @returns {array}
+	 */
 	getAverageSessions(userId) {
 		return fetch(
 			process.env.REACT_APP_URL + 'user/' + userId + '/average-sessions'
@@ -16,6 +33,12 @@ const backEnd = {
 			.then((response) => response.json())
 			.then((result) => result.data);
 	},
+
+	/**
+	 *
+	 * @param {number} userId
+	 * @returns {array}
+	 */
 	getPerformance(userId) {
 		return fetch(process.env.REACT_APP_URL + 'user/' + userId + '/performance')
 			.then((response) => response.json())

@@ -26,7 +26,6 @@ p {
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-gap: 20px;
 	justify-content: center;
-	align-items: center;
 }
 
 .bar-chart-component {
@@ -55,6 +54,8 @@ p {
 
 .row-right {
 	margin-left: 30px;
+	display: flex;
+	flex-direction: column;
 }
 
 .article {
@@ -125,11 +126,15 @@ p {
 	color: #74798c;
 }
 
+.barChart {
+	height: calc(100% - 60px);
+}
 .bar-chart-component-info {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding-top: 20px;
+	height: 40px;
 }
 
 .bar-chart-component-info-title {

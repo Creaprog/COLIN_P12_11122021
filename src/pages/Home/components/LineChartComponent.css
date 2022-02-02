@@ -1,0 +1,10 @@
+.titleLineChart {
+	position: absolute;
+	font-weight: 500;
+	font-size: 15px;
+	line-height: 24px;
+	padding-left: 30px;
+	padding-top: 10px;
+	opacity: 0.5;
+	color: #ffffff;
+}
