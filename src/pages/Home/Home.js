@@ -10,7 +10,6 @@ import { useCallUser2 } from '../../services/useCallUser';
 import Model from '../../Model';
 import { useParams } from 'react-router-dom';
 
-//TODO : Faire un message d'erreur lorsque le fetch ne fetch pas
 /**
  *
  * @returns {Home}
@@ -20,14 +19,12 @@ const Home = () => {
 	if (id === undefined) {
 		id = 12;
 	}
-	const [queryUser, queryUserError] = useCallUser2(() => Model.getUser(id));
-	const [queryActivity, queryActivityError] = useCallUser2(() =>
-		Model.getActivity(id)
-	);
-	const [queryAverageSessions, queryAverageSessionsError] = useCallUser2(() =>
+	const [queryUser] = useCallUser2(() => Model.getUser(id));
+	const [queryActivity] = useCallUser2(() => Model.getActivity(id));
+	const [queryAverageSessions] = useCallUser2(() =>
 		Model.getAverageSessions(id)
 	);
-	const [queryformance] = useCallUser2(() => Model.getPerformance(id));
+	const [queryperformance] = useCallUser2(() => Model.getPerformance(id));
 
 	return (
 		<>
@@ -36,16 +33,21 @@ const Home = () => {
 				<NavBarLeft />
 				<div className="container">
 					<div className="hello">
-						{}
-						<div>
-							La récupération des données est indisponible pour le moment.
-						</div>
-						<div>Bonjour</div>
-						<div className="name">
-							{queryUser ? queryUser.userInfos.firstName : '...'}
-						</div>
+						{queryUser === undefined ? (
+							<div>
+								La récupération des données est indisponible pour le moment.
+							</div>
+						) : (
+							<>
+								<div>Bonjour</div>
+								<div className="name">
+									{queryUser ? queryUser.userInfos.firstName : '...'}
+								</div>
+							</>
+						)}
 					</div>
 					<p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+
 					<div className="row">
 						<div className="row-left">
 							<div className="bar-chart-component">
@@ -82,8 +84,8 @@ const Home = () => {
 								) : null}
 							</div>
 							<div className="radar-chart-component">
-								{queryformance != null ? (
-									<RadarChartComponent data={queryformance} />
+								{queryperformance != null ? (
+									<RadarChartComponent data={queryperformance} />
 								) : null}
 							</div>
 							<div className="radial-chart-component">
