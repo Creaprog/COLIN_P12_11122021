@@ -12,7 +12,16 @@ const MyDot = ({ cx, cy }) => {
 		</svg>
 	);
 };
-
+const CustomTooltipLine = ({ active, payload, label }) => {
+	if (active && payload && payload.length) {
+		return (
+			<div className="custom-tooltip-line">
+				<p className="label-line">{`${payload[0].value} min`}</p>
+			</div>
+		);
+	}
+	return null;
+};
 export default function LineChartComponent(props) {
 	return (
 		<>
@@ -37,7 +46,7 @@ export default function LineChartComponent(props) {
 					padding={{ left: 10, right: 10 }}
 				/>
 				<YAxis hide={true} tickLine={false} />
-				<Tooltip />
+				<Tooltip content={<CustomTooltipLine />} />
 				<Line
 					type="monotone"
 					dataKey="min"

@@ -70,7 +70,7 @@ const Home = () => {
 												alt="Calories"
 												className="oval"
 											/>
-											Calories(kCal)
+											Calories brûlées (kCal)
 										</div>
 									</div>
 								</div>
@@ -78,27 +78,29 @@ const Home = () => {
 									<BarChartComponent data={queryActivity} />
 								) : null}
 							</div>
-							<div className="line-chart-component">
-								{queryAverageSessions != null ? (
-									<LineChartComponent data={queryAverageSessions} />
-								) : null}
-							</div>
-							<div className="radar-chart-component">
-								{queryperformance != null ? (
-									<RadarChartComponent data={queryperformance} />
-								) : null}
-							</div>
-							<div className="radial-chart-component">
-								{queryUser && queryUser.score != null ? (
-									<RadialChartComponent
-										data={[
-											{
-												score: queryUser.score * 100,
-												fill: '#FF0101',
-											},
-										]}
-									/>
-								) : null}
+							<div className="other-chart-component">
+								<div className="line-chart-component">
+									{queryAverageSessions != null ? (
+										<LineChartComponent data={queryAverageSessions} />
+									) : null}
+								</div>
+								<div className="radar-chart-component">
+									{queryperformance != null ? (
+										<RadarChartComponent data={queryperformance} />
+									) : null}
+								</div>
+								<div className="radial-chart-component">
+									{queryUser && queryUser.score != null ? (
+										<RadialChartComponent
+											data={[
+												{
+													score: queryUser.score * 100,
+													fill: '#FF0101',
+												},
+											]}
+										/>
+									) : null}
+								</div>
 							</div>
 						</div>
 						<div className="row-right">

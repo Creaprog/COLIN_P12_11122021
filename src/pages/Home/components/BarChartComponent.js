@@ -10,6 +10,17 @@ import {
 } from 'recharts';
 import PropTypes from 'prop-types';
 
+const BarChartCustomTooltip = ({ active, payload, label }) => {
+	if (active && payload && payload.length) {
+		return (
+			<div className="custom-tooltip-activity">
+				<p className="label-activity">{`${payload[0].value}kg`}</p>
+				<p className="label-activity">{`${payload[1].value}kCal`}</p>
+			</div>
+		);
+	}
+	return null;
+};
 /**
  *
  * @param {array} props
@@ -39,7 +50,7 @@ export default function BarChartComponent(props) {
 					/>
 					<YAxis datakey="calories" hide={true} />
 
-					<Tooltip />
+					<Tooltip content={<BarChartCustomTooltip />} />
 					<Bar
 						dataKey="kilogram"
 						fill="#282D30"

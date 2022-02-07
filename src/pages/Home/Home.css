@@ -22,10 +22,13 @@ p {
 }
 
 .row-left {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-gap: 20px;
-	justify-content: center;
+	display: flex;
+	flex-direction: column;
+}
+
+.other-chart-component {
+	display: flex;
+	margin-top: 20px;
 }
 
 .bar-chart-component {
@@ -39,11 +42,13 @@ p {
 .line-chart-component {
 	background-color: red;
 	border-radius: 5px;
+	margin-right: 30px;
 }
 
 .radar-chart-component {
 	background-color: black;
 	border-radius: 5px;
+	margin-right: 30px;
 }
 
 .radial-chart-component {
@@ -61,17 +66,17 @@ p {
 .article {
 	display: flex;
 	align-items: center;
-	justify-content: flex-start;
 	width: 258px;
 	height: 124px;
 	background-color: #fbfbfb;
-	margin-bottom: 40px;
+	margin-bottom: 37px;
 	padding-left: 20px;
 }
 
 .article-text {
 	margin-left: 50px;
 }
+
 .grp-article-icon {
 	position: relative;
 }
@@ -129,10 +134,10 @@ p {
 .barChart {
 	height: calc(100% - 60px);
 }
+
 .bar-chart-component-info {
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
 	padding-top: 20px;
 	height: 40px;
 }
@@ -141,6 +146,7 @@ p {
 	font-weight: bold;
 	margin-left: 30px;
 }
+
 .bar-chart-component-info-bar-chart {
 	display: flex;
 }
@@ -155,4 +161,28 @@ p {
 
 .oval {
 	margin-right: 10px;
+}
+
+.label-activity {
+	color: white;
+	text-align: center;
+	padding: 10px;
+}
+
+.custom-tooltip-activity {
+	background-color: #e60000;
+}
+
+.custom-tooltip-line {
+	background-color: white;
+	padding: 5px;
+}
+
+.label-line {
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 15px;
+	line-height: 24px;
+	text-align: center;
 }
