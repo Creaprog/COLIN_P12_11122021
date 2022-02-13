@@ -29,7 +29,7 @@ const Home = () => {
 	return (
 		<>
 			<Header />
-			<div className="row">
+			<div className="row-top">
 				<NavBarLeft />
 				<div className="container">
 					<div className="hello">

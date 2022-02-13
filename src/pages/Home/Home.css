@@ -1,5 +1,10 @@
+.row-top {
+	display: flex;
+}
+
 .row {
 	display: flex;
+	flex-wrap: wrap;
 }
 
 .container {
@@ -63,6 +68,15 @@ p {
 	flex-direction: column;
 }
 
+@media only screen and (max-width: 1200px) {
+	.row-right {
+		margin-left: 0;
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+	}
+}
+
 .article {
 	display: flex;
 	align-items: center;
@@ -71,6 +85,18 @@ p {
 	background-color: #fbfbfb;
 	margin-bottom: 37px;
 	padding-left: 20px;
+}
+
+@media only screen and (max-width: 1200px) {
+	.article {
+		display: flex;
+		align-items: center;
+		width: 258px;
+		height: 124px;
+		background-color: #fbfbfb;
+		margin-bottom: 0;
+		padding-left: 20px;
+	}
 }
 
 .article-text {

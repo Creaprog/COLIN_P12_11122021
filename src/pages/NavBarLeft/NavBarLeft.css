@@ -2,11 +2,17 @@
 	background-color: black;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: space-around;
 	align-items: center;
-	/* 90px size of header */
 	min-height: calc(100vh - 90px);
 	width: 120px;
+}
+
+.grp-button {
+	margin-top: 100px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .nav-bar-left-button {
@@ -16,9 +22,19 @@
 	margin-bottom: 20px;
 }
 
-.copyright {
+/* .copyright {
 	position: absolute;
 	bottom: 50px;
+	writing-mode: vertical-rl;
+	text-orientation: mixed;
+	color: white;
+	transform: rotate(0.5turn);
+	font-size: 12px;
+} */
+
+.copyright {
+	/* position: absolute; */
+	/* bottom: 10px; */
 	writing-mode: vertical-rl;
 	text-orientation: mixed;
 	color: white;
